@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-controller
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/target-type: ip
+
+spec:
+  rules:
+    - host: event-board.com
+      http:
+        paths:
+          - path: "/comment-service"
+            pathType: Prefix
+            backend:
+              service:
+                name: comment-service
+                port:
+                  number: 80
+
+          - path: "/user-service"
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 80       
