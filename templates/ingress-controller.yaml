@@ -3,25 +3,23 @@ kind: Ingress
 metadata:
   name: ingress-controller
   annotations:
-    alb.ingress.kubernetes.io/scheme: internal
-    alb.ingress.kubernetes.io/target-type: ip
+    kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: alb
   rules:
-    - http:
+    - host: api.event-board.com
+      http:
         paths:
-          - path: "/comment-service"
-            pathType: Prefix
+          - pathType: Prefix
+            path: "/event-service"
             backend:
               service:
-                name: comment-service
+                name: event-service
                 port:
                   number: 80
-
-          - path: "/user-service"
-            pathType: Prefix
+          - pathType: Prefix
+            path: "/user-service"
             backend:
               service:
                 name: user-service
                 port:
-                  number: 80    
+                  number: 80
