@@ -5,11 +5,10 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/scheme: internal
     alb.ingress.kubernetes.io/target-type: ip
-
 spec:
+  ingressClassName: alb
   rules:
-    - host: event-board.com
-      http:
+    - http:
         paths:
           - path: "/comment-service"
             pathType: Prefix
@@ -25,4 +24,4 @@ spec:
               service:
                 name: user-service
                 port:
-                  number: 80       
+                  number: 80    
