@@ -35,6 +35,6 @@ spec:
       restartPolicy: Always
       containers:
       - name: user-service
-        image: dbogdanovich/user-service:v0.1.2
+        image: dbogdanovich/user-service:v0.1.3
         ports:
         - containerPort: 80

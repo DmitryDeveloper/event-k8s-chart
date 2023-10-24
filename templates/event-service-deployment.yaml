@@ -35,6 +35,6 @@ spec:
       restartPolicy: Always
       containers:
       - name: event-service
-        image: dbogdanovich/event-service:v0.1.0
+        image: dbogdanovich/event-service:v0.1.3
         ports:
         - containerPort: 80
