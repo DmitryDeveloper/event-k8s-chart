@@ -13,7 +13,6 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
-  type: NodePort    
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,13 +38,3 @@ spec:
         image: dbogdanovich/user-service:v0.1.2
         ports:
         - containerPort: 80
-        env:
-        - name: DB_HOST
-          value: mysql
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: password
-        - name: DB_USER
-          value: root
