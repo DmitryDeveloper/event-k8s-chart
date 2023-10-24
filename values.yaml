@@ -1,2 +1,2 @@
 # Default Values for my Helm Chart
-replicaCount: 2
+replicaCount: 1
